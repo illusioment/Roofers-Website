@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Metal Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #00438c;
+            --secondary: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #6c757d;
+            --white: #fff;
+            --light-gray: #eee;
+            --border: #ddd;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .resources-section {
+            padding: 60px 0;
+        }
+        
+        .resources-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .resources-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .resources-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .resources-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            background-color: var(--secondary);
+            border: none;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--text-dark);
+        }
+        
+        .tab-button:hover {
+            background-color: #e9ecef;
+        }
+        
+        .tab-button.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .resources-content {
+            display: none;
+        }
+        
+        .resources-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .resource-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        
+        .resource-card-content {
+            padding: 20px;
+        }
+        
+        .resource-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .resource-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .resource-card a {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .resource-card a:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .resource-list {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .resource-list h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .resource-list-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .resource-list-item:last-child {
+            border-bottom: none;
+        }
+        
+        .resource-list-item a {
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .resource-list-item a:hover {
+            color: var(--primary);
+        }
+        
+        .resource-list-item i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .resource-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .resource-table th,
+        .resource-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .resource-table th {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .resource-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .resource-table tr:hover {
+            background-color: var(--secondary);
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .download-btn i {
+            margin-right: 5px;
+        }
+        
+        .download-btn:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-section {
+            background-color: var(--secondary);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .contact-section p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #555;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #444;
+            color: var(--white);
+            margin: 0 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .resource-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                width: calc(50% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Metal Services</a>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#" class="current">Resources</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Metal Industry Resources</h1>
+            <p>Access our collection of valuable resources including guides, specifications, calculators, and industry insights to help you make informed decisions.</p>
+        </div>
+    </section>
+
+    <section class="resources-section">
+        <div class="container">
+            <div class="resources-header">
+                <h2>Browse Our Resources</h2>
+                <p>We've compiled a comprehensive set of resources to support your metal service needs. Select a category below to explore.</p>
+            </div>
+
+            <div class="resources-tabs">
+                <button class="tab-button active" data-tab="metal-specifications">Metal Specifications</button>
+                <button class="tab-button" data-tab="technical-guides">Technical Guides</button>
+                <button class="tab-button" data-tab="calculators">Calculators</button>
+                <button class="tab-button" data-tab="industry-standards">Industry Standards</button>
+                <button class="tab-button" data-tab="case-studies">Case Studies</button>
+                <button class="tab-button" data-tab="news-insights">News & Insights</button>
+            </div>
+
+            <!-- Metal Specifications Tab -->
+            <div id="metal-specifications" class="resources-content active">
+                <div class="resource-list">
+                    <h3>Resources</h3>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-pdf"></i> Aluminum Specification Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-pdf"></i> Stainless Steel Specification Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-pdf"></i> Carbon Steel Specification Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-pdf"></i> Copper & Brass Specification Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-pdf"></i> Nickel Alloys Specification Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-pdf"></i> Titanium Specification Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-pdf"></i> Specialty Metals Specification Guide</a>
+                    </div>
+                </div>
+
+                <h3 style="margin: 30px 0 20px;">Popular Metal Specifications</h3>
+                <div class="resource-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metal Type</th>
+                                <th>Specification</th>
+                                <th>Common Applications</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aluminum</td>
+                                <td>6061-T6</td>
+                                <td>Structural, automotive, marine</td>
+                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>Stainless Steel</td>
+                                <td>304/304L</td>
+                                <td>Food processing, chemical containers</td>
+                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>Carbon Steel</td>
+                                <td>A36</td>
+                                <td>Construction, general fabrication</td>
+                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>Copper</td>
+                                <td>C11000 (ETP)</td>
+                                <td>Electrical, plumbing</td>
+                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>Titanium</td>
+                                <td>Grade 5 (Ti-6Al-4V)</td>
+                                <td>Aerospace, medical implants</td>
+                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Technical Guides Tab -->
+            <div id="technical-guides" class="resources-content">
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Metal Cutting Guide">
+                        <div class="resource-card-content">
+                            <h3>Metal Cutting Best Practices</h3>
+                            <p>Learn the optimal techniques for cutting different types of metals to ensure precision and quality.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Metal Finishing Guide">
+                        <div class="resource-card-content">
+                            <h3>Surface Finishing Techniques</h3>
+                            <p>Explore various metal finishing methods to achieve your desired appearance and performance requirements.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Welding Guide">
+                        <div class="resource-card-content">
+                            <h3>Welding Process Selection</h3>
+                            <p>Comprehensive guide to selecting the appropriate welding process for different metal types and applications.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Corrosion Prevention">
+                        <div class="resource-card-content">
+                            <h3>Corrosion Prevention Guide</h3>
+                            <p>Understand corrosion mechanisms and learn effective prevention strategies for various environments.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Heat Treatment">
+                        <div class="resource-card-content">
+                            <h3>Heat Treatment Fundamentals</h3>
+                            <p>Learn about various heat treatment processes and their effects on metal properties.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Material Selection">
+                        <div class="resource-card-content">
+                            <h3>Material Selection Guide</h3>
+                            <p>Step-by-step approach to selecting the optimal metal for your specific application requirements.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculators Tab -->
+            <div id="calculators" class="resources-content">
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Weight Calculator">
+                        <div class="resource-card-content">
+                            <h3>Metal Weight Calculator</h3>
+                            <p>Calculate the weight of various metal materials based on dimensions and metal type.</p>
+                            <a href="#">Use Calculator</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Cost Calculator">
+                        <div class="resource-card-content">
+                            <h3>Material Cost Estimator</h3>
+                            <p>Estimate the cost of metal materials for your project based on current market prices.</p>
+                            <a href="#">Use Calculator</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Expansion Calculator">
+                        <div class="resource-card-content">
+                            <h3>Thermal Expansion Calculator</h3>
+                            <p>Calculate the thermal expansion of metals under different temperature conditions.</p>
+                            <a href="#">Use Calculator</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Conversion Calculator">
+                        <div class="resource-card-content">
+                            <h3>Unit Conversion Tool</h3>
+                            <p>Convert between different units of measurement commonly used in metal processing.</p>
+                            <a href="#">Use Calculator</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industry Standards Tab -->
+            <div id="industry-standards" class="resources-content">
+                <div class="resource-list">
+                    <h3>Industry Standards & Compliance</h3>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> ASTM Standards Overview</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> AWS Welding Standards Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> ISO Quality Standards for Metals</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> SAE Material Standards</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> EN European Standards Guide</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> Regulatory Compliance Checklist</a>
+                    </div>
+                    <div class="resource-list-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> Environmental Regulations Guide</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Studies Tab -->
+            <div id="case-studies" class="resources-content">
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Aerospace Case Study">
+                        <div class="resource-card-content">
+                            <h3>Aerospace Component Optimization</h3>
+                            <p>How we helped an aerospace manufacturer reduce weight while maintaining structural integrity.</p>
+                            <a href="#">Read Case Study</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Automotive Case Study">
+                        <div class="resource-card-content">
+                            <h3>Automotive Supply Chain Efficiency</h3>
+                            <p>Streamlining metal supply for a major automotive manufacturer's production line.</p>
+                            <a href="#">Read Case Study</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Construction Case Study">
+                        <div class="resource-card-content">
+                            <h3>Architectural Metal Application</h3>
+                            <p>Custom metal solutions for a landmark building project with unique aesthetic requirements.</p>
+                            <a href="#">Read Case Study</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Energy Case Study">
+                        <div class="resource-card-content">
+                            <h3>Energy Sector Material Selection</h3>
+                            <p>Selecting specialized materials for extreme operating conditions in energy production.</p>
+                            <a href="#">Read Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News & Insights Tab -->
+            <div id="news-insights" class="resources-content">
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Market Trends">
+                        <div class="resource-card-content">
+                            <h3>2025 Metal Market Trends</h3>
+                            <p>Analysis of current and future trends in the global metal market and their impact on industries.</p>
+                            <a href="#">Read Article</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Sustainability">
+                        <div class="resource-card-content">
+                            <h3>Sustainable Metal Processing</h3>
+                            <p>How the industry is evolving to reduce environmental impact and increase sustainability.</p>
+                            <a href="#">Read Article</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Technology Innovations">
+                        <div class="resource-card-content">
+                            <h3>Emerging Metal Technologies</h3>
+                            <p>Exploring innovative technologies reshaping metal manufacturing and processing.</p>
+                            <a href="#">Read Article</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <img src="/api/placeholder/400/320" alt="Supply Chain Insights">
+                        <div class="resource-card-content">
+                            <h3>Supply Chain Resilience</h3>
+                            <p>Strategies for building robust metal supply chains in uncertain global conditions.</p>
+                            <a href="#">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2>Need Additional Resources?</h2>
+            <p>If you can't find what you're looking for or need customized information for your specific application, our team of metal experts is ready to help.</p>
+            <a href="#" class="contact-btn">Contact Our Specialists</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Metal Services</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Metal Specifications</a></li>
+                        <li><a href="#">Technical Guides</a></li>
+                        <li><a href="#">Calculators</a></li>
+                        <li><a href="#">Industry Standards</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Industries</h3>
+                    <ul>
+                        <li><a href="#">Aerospace</a></li>
+                        <li><a href="#">Automotive</a></li>
+                        <li><a href="#">Construction</a></li>
+                        <li><a href="#">Energy</a></li>
+                        <li><a href="#">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-phone"></i> (555) 123-4567</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@metalservices.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Metal Way, Steel City, SC 12345</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>&copy; 2025 Metal Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const resourcesContents = document.querySelectorAll('.resources-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                resourcesContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

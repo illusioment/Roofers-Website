@@ -1,0 +1,436 @@
+/* Gallery Page Specific Styles */
+.gallery-filters {
+    background-color: #f5f8ff;
+    padding: 1.5rem 0;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter-btn {
+    background-color: #fff;
+    border: 2px solid #1E3764;
+    color: #1E3764;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: #1E3764;
+    color: #fff;
+}
+
+.gallery-grid {
+    padding: 3rem 0;
+}
+
+.gallery-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.gallery-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image img {
+    transform: scale(1.05);
+}
+
+.gallery-info {
+    padding: 1.5rem;
+}
+
+.gallery-info h3 {
+    margin-bottom: 0.5rem;
+    color: #1E3764;
+}
+
+.gallery-info .location {
+    color: #666;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.gallery-cta {
+    background-color: #1E3764;
+    color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.gallery-cta h2 {
+    margin-bottom: 1rem;
+}
+
+.gallery-cta p {
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #1E3764;
+}
+
+/* JavaScript for Gallery Filters */
+.gallery-item.hidden {
+    display: none;
+}
+
+/* Responsive adjustments for Gallery page */
+@media (max-width: 992px) {
+    .gallery-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-items {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Colors Page Specific Styles */
+.colors-section {
+    padding: 3rem 0;
+}
+
+.colors-section.premium {
+    background-color: #f5f8ff;
+    margin-top: 2rem;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.color-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.swatch {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}
+
+.swatch.metallic {
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+}
+
+.color-swatch p {
+    font-weight: 600;
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+.info-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.info-column h3 {
+    color: #1E3764;
+    margin-bottom: 1rem;
+}
+
+.color-info {
+    background-color: #fff;
+    padding: 3rem 0;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Responsive adjustments for Colors page */
+@media (max-width: 992px) {
+    .color-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .info-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .color-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .info-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .color-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .swatch {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Contact Page Specific Styles */
+.contact-main {
+    padding: 3rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+}
+
+.contact-form-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container h2 {
+    color: #1E3764;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1E3764;
+    outline: none;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-box {
+    background-color: #f5f8ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-box h3 {
+    color: #1E3764;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #1E3764;
+}
+
+.info-item {
+    margin-bottom: 1rem;
+}
+
+.info-item strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.info-item p {
+    margin: 0.25rem 0;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.service-areas {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.map-section {
+    padding: 3rem 0;
+    background-color: #f7f7f7;
+}
+
+.map-container {
+    height: 400px;
+    width: 100%;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-placeholder {
+    height: 100%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #666;
+}
+
+.faq-section {
+    padding: 3rem 0;
+}
+
+.faq-container {
+    margin-top: 2rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.faq-item summary {
+    padding: 1rem 0;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #1E3764;
+}
+
+.faq-item[open] summary::after {
+    content: '−';
+}
+
+.faq-answer {
+    padding: 0 0 1rem;
+}
+
+/* Responsive adjustments for Contact page */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        display: block;
+    }
+    
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}
