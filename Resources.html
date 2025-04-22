@@ -3,49 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources | Metal Services</title>
+    <title>Resources - INSERTNAMEHERE</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        /* Global Styles */
         :root {
-            --primary: #0056b3;
-            --primary-dark: #00438c;
-            --secondary: #f8f9fa;
-            --text-dark: #333;
-            --text-light: #6c757d;
-            --white: #fff;
-            --light-gray: #eee;
-            --border: #ddd;
-            --success: #28a745;
+            --primary-blue: #2b55a1;
+            --light-blue: #3366cc;
+            --dark-blue: #1a3564;
+            --light-gray: #f5f5f5;
+            --medium-gray: #dddddd;
+            --dark-gray: #333333;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            color: var(--text-dark);
             line-height: 1.6;
-            background-color: #f9f9f9;
+            color: var(--dark-gray);
+            background-color: white;
         }
         
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
+        /* Header & Navigation */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
         
-        .header-content {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,10 +53,22 @@
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            max-height: 60px;
+            margin-right: 10px;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
             font-size: 24px;
-            font-weight: bold;
-            color: var(--primary);
-            text-decoration: none;
+            cursor: pointer;
+            color: var(--primary-blue);
         }
         
         nav ul {
@@ -65,40 +77,58 @@
         }
         
         nav ul li {
-            margin-left: 20px;
+            margin-left: 25px;
         }
         
         nav ul li a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
+            color: var(--primary-blue);
+            font-weight: bold;
+            position: relative;
             transition: color 0.3s;
         }
         
         nav ul li a:hover {
-            color: var(--primary);
+            color: var(--light-blue);
         }
         
-        .hero {
-            background-color: var(--primary);
-            color: var(--white);
+        nav ul li a.active {
+            color: var(--dark-blue);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-blue);
+        }
+        
+        /* Banner */
+        .banner {
+            background-color: var(--primary-blue);
+            color: white;
             padding: 60px 0;
             text-align: center;
         }
         
-        .hero h1 {
+        .banner h1 {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
         
-        .hero p {
+        .banner p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
         }
         
+        /* Resources Section */
         .resources-section {
             padding: 60px 0;
+            background-color: var(--light-gray);
         }
         
         .resources-header {
@@ -108,44 +138,54 @@
         
         .resources-header h2 {
             font-size: 2rem;
-            color: var(--primary);
+            color: var(--primary-blue);
             margin-bottom: 15px;
         }
         
         .resources-header p {
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: var(--dark-gray);
             max-width: 700px;
             margin: 0 auto;
         }
         
-        .resources-tabs {
+        .resource-tabs {
             display: flex;
             justify-content: center;
             margin-bottom: 40px;
             flex-wrap: wrap;
+            gap: 10px;
         }
         
         .tab-button {
-            background-color: var(--secondary);
+            background-color: white;
             border: none;
-            padding: 12px 24px;
-            margin: 5px;
+            padding: 15px 25px;
             border-radius: 4px;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            color: var(--text-dark);
+            color: var(--primary-blue);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .tab-button:hover {
-            background-color: #e9ecef;
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
         }
         
         .tab-button.active {
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
         }
         
         .resources-content {
@@ -162,203 +202,113 @@
             to { opacity: 1; }
         }
         
-        .resource-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .resource-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        
-        .resource-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-        
-        .resource-card-content {
-            padding: 20px;
-        }
-        
-        .resource-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .resource-card p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .resource-card a {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .resource-card a:hover {
-            background-color: var(--primary-dark);
-        }
-        
         .resource-list {
-            background-color: var(--white);
+            background-color: white;
             border-radius: 8px;
             padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         
         .resource-list h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
             font-size: 1.3rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--medium-gray);
         }
         
-        .resource-list-item {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--light-gray);
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
         }
         
-        .resource-list-item:last-child {
-            border-bottom: none;
+        .resource-link {
+            padding: 12px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
-        .resource-list-item a {
+        .resource-link:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .resource-link a {
             display: flex;
             align-items: center;
-            color: var(--text-dark);
+            color: var(--dark-gray);
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s;
         }
         
-        .resource-list-item a:hover {
-            color: var(--primary);
+        .resource-link a:hover {
+            color: var(--primary-blue);
         }
         
-        .resource-list-item i {
+        .resource-link i {
             margin-right: 10px;
-            color: var(--primary);
-        }
-        
-        .resource-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .resource-table th,
-        .resource-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .resource-table th {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-        
-        .resource-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .resource-table tr:hover {
-            background-color: var(--secondary);
-        }
-        
-        .download-btn {
-            display: flex;
-            align-items: center;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .download-btn i {
-            margin-right: 5px;
-        }
-        
-        .download-btn:hover {
-            text-decoration: underline;
+            color: #e74c3c;
+            font-size: 18px;
         }
         
         .contact-section {
-            background-color: var(--secondary);
-            padding: 60px 0;
+            background-color: white;
+            padding: 40px 0;
             text-align: center;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
         .contact-section h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
         }
         
         .contact-section p {
-            color: var(--text-light);
-            margin-bottom: 30px;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        .contact-btn {
+        .btn {
             display: inline-block;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 12px 24px;
-            border-radius: 4px;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px 25px;
             text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s;
         }
         
-        .contact-btn:hover {
-            background-color: var(--primary-dark);
+        .btn:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
         }
         
+        /* Footer */
         footer {
-            background-color: #333;
-            color: var(--white);
-            padding: 40px 0;
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 50px 0 20px;
         }
         
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 20px;
-            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
         
         .footer-column h3 {
+            margin-bottom: 15px;
             font-size: 1.2rem;
-            margin-bottom: 20px;
         }
         
         .footer-column ul {
@@ -370,387 +320,379 @@
         }
         
         .footer-column ul li a {
-            color: #ccc;
+            color: white;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-column ul li a:hover {
-            color: var(--white);
+            color: var(--medium-gray);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid #555;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: #444;
-            color: var(--white);
-            margin: 0 8px;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-        }
-        
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .hero h1 {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease-in-out;
+            }
+            
+            nav.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .banner h1 {
                 font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .resource-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
+            .resource-tabs {
                 flex-direction: column;
+                align-items: center;
             }
             
             .tab-button {
-                width: calc(50% - 10px);
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 8px;
+            }
+            
+            .resource-links {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Metal Services</a>
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#" class="current">Resources</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Replace with your actual logo image -->
+                <img src="images/logo.png" alt="INSERTNAMEHERE Logo">
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="colors.html">Colors</a></li>
+                    <li><a href="resources.html" class="active">Our Resources</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="banner">
         <div class="container">
-            <h1>Metal Industry Resources</h1>
-            <p>Access our collection of valuable resources including guides, specifications, calculators, and industry insights to help you make informed decisions.</p>
+            <h1>INSERTNAMEHERE Resources</h1>
+            <p>Access our comprehensive collection of documents and resources to help you with your roofing and siding projects</p>
         </div>
     </section>
 
     <section class="resources-section">
         <div class="container">
             <div class="resources-header">
-                <h2>Browse Our Resources</h2>
-                <p>We've compiled a comprehensive set of resources to support your metal service needs. Select a category below to explore.</p>
+                <h2>Document Library</h2>
+                <p>Browse our resource categories below to find the documents you need</p>
             </div>
 
-            <div class="resources-tabs">
-                <button class="tab-button active" data-tab="metal-specifications">Metal Specifications</button>
-                <button class="tab-button" data-tab="technical-guides">Technical Guides</button>
-                <button class="tab-button" data-tab="calculators">Calculators</button>
-                <button class="tab-button" data-tab="industry-standards">Industry Standards</button>
-                <button class="tab-button" data-tab="case-studies">Case Studies</button>
-                <button class="tab-button" data-tab="news-insights">News & Insights</button>
+            <div class="resource-tabs">
+                <button class="tab-button active" data-tab="brochures">
+                    <i class="fas fa-book-open"></i> Brochures
+                </button>
+                <button class="tab-button" data-tab="cut-sheets">
+                    <i class="fas fa-cut"></i> Cut Sheets
+                </button>
+                <button class="tab-button" data-tab="installation-files">
+                    <i class="fas fa-tools"></i> Installation Files
+                </button>
+                <button class="tab-button" data-tab="msds">
+                    <i class="fas fa-flask"></i> MSDS
+                </button>
+                <button class="tab-button" data-tab="printable-applications">
+                    <i class="fas fa-print"></i> Printable Applications
+                </button>
+                <button class="tab-button" data-tab="resources">
+                    <i class="fas fa-folder-open"></i> Resources
+                </button>
+                <button class="tab-button" data-tab="warranties">
+                    <i class="fas fa-shield-alt"></i> Warranties
+                </button>
             </div>
 
-            <!-- Metal Specifications Tab -->
-            <div id="metal-specifications" class="resources-content active">
+            <!-- Brochures Tab -->
+            <div id="brochures" class="resources-content active">
                 <div class="resource-list">
-                    <h3>Resources</h3>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-pdf"></i> Aluminum Specification Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-pdf"></i> Stainless Steel Specification Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-pdf"></i> Carbon Steel Specification Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-pdf"></i> Copper & Brass Specification Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-pdf"></i> Nickel Alloys Specification Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-pdf"></i> Titanium Specification Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-pdf"></i> Specialty Metals Specification Guide</a>
-                    </div>
-                </div>
-
-                <h3 style="margin: 30px 0 20px;">Popular Metal Specifications</h3>
-                <div class="resource-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Metal Type</th>
-                                <th>Specification</th>
-                                <th>Common Applications</th>
-                                <th>Download</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Aluminum</td>
-                                <td>6061-T6</td>
-                                <td>Structural, automotive, marine</td>
-                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
-                            </tr>
-                            <tr>
-                                <td>Stainless Steel</td>
-                                <td>304/304L</td>
-                                <td>Food processing, chemical containers</td>
-                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
-                            </tr>
-                            <tr>
-                                <td>Carbon Steel</td>
-                                <td>A36</td>
-                                <td>Construction, general fabrication</td>
-                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
-                            </tr>
-                            <tr>
-                                <td>Copper</td>
-                                <td>C11000 (ETP)</td>
-                                <td>Electrical, plumbing</td>
-                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
-                            </tr>
-                            <tr>
-                                <td>Titanium</td>
-                                <td>Grade 5 (Ti-6Al-4V)</td>
-                                <td>Aerospace, medical implants</td>
-                                <td><a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Technical Guides Tab -->
-            <div id="technical-guides" class="resources-content">
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Metal Cutting Guide">
-                        <div class="resource-card-content">
-                            <h3>Metal Cutting Best Practices</h3>
-                            <p>Learn the optimal techniques for cutting different types of metals to ensure precision and quality.</p>
-                            <a href="#">Read More</a>
+                    <h3>Product Brochures</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Metal Roofing Brochure</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Metal Finishing Guide">
-                        <div class="resource-card-content">
-                            <h3>Surface Finishing Techniques</h3>
-                            <p>Explore various metal finishing methods to achieve your desired appearance and performance requirements.</p>
-                            <a href="#">Read More</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Vinyl Siding Catalog</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Welding Guide">
-                        <div class="resource-card-content">
-                            <h3>Welding Process Selection</h3>
-                            <p>Comprehensive guide to selecting the appropriate welding process for different metal types and applications.</p>
-                            <a href="#">Read More</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Gutters & Accessories Brochure</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Corrosion Prevention">
-                        <div class="resource-card-content">
-                            <h3>Corrosion Prevention Guide</h3>
-                            <p>Understand corrosion mechanisms and learn effective prevention strategies for various environments.</p>
-                            <a href="#">Read More</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Trim & Flashing Guide</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Heat Treatment">
-                        <div class="resource-card-content">
-                            <h3>Heat Treatment Fundamentals</h3>
-                            <p>Learn about various heat treatment processes and their effects on metal properties.</p>
-                            <a href="#">Read More</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Complete Product Line Overview</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Material Selection">
-                        <div class="resource-card-content">
-                            <h3>Material Selection Guide</h3>
-                            <p>Step-by-step approach to selecting the optimal metal for your specific application requirements.</p>
-                            <a href="#">Read More</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Insulation Products Brochure</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Ventilation Systems Guide</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Company Capability Statement</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Calculators Tab -->
-            <div id="calculators" class="resources-content">
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Weight Calculator">
-                        <div class="resource-card-content">
-                            <h3>Metal Weight Calculator</h3>
-                            <p>Calculate the weight of various metal materials based on dimensions and metal type.</p>
-                            <a href="#">Use Calculator</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Cost Calculator">
-                        <div class="resource-card-content">
-                            <h3>Material Cost Estimator</h3>
-                            <p>Estimate the cost of metal materials for your project based on current market prices.</p>
-                            <a href="#">Use Calculator</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Expansion Calculator">
-                        <div class="resource-card-content">
-                            <h3>Thermal Expansion Calculator</h3>
-                            <p>Calculate the thermal expansion of metals under different temperature conditions.</p>
-                            <a href="#">Use Calculator</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Conversion Calculator">
-                        <div class="resource-card-content">
-                            <h3>Unit Conversion Tool</h3>
-                            <p>Convert between different units of measurement commonly used in metal processing.</p>
-                            <a href="#">Use Calculator</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Industry Standards Tab -->
-            <div id="industry-standards" class="resources-content">
+            <!-- Cut Sheets Tab -->
+            <div id="cut-sheets" class="resources-content">
                 <div class="resource-list">
-                    <h3>Industry Standards & Compliance</h3>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-alt"></i> ASTM Standards Overview</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-alt"></i> AWS Welding Standards Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-alt"></i> ISO Quality Standards for Metals</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-alt"></i> SAE Material Standards</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-alt"></i> EN European Standards Guide</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-alt"></i> Regulatory Compliance Checklist</a>
-                    </div>
-                    <div class="resource-list-item">
-                        <a href="#"><i class="fas fa-file-alt"></i> Environmental Regulations Guide</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case Studies Tab -->
-            <div id="case-studies" class="resources-content">
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Aerospace Case Study">
-                        <div class="resource-card-content">
-                            <h3>Aerospace Component Optimization</h3>
-                            <p>How we helped an aerospace manufacturer reduce weight while maintaining structural integrity.</p>
-                            <a href="#">Read Case Study</a>
+                    <h3>Technical Specifications and Cut Sheets</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Standing Seam Panel Specs</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Automotive Case Study">
-                        <div class="resource-card-content">
-                            <h3>Automotive Supply Chain Efficiency</h3>
-                            <p>Streamlining metal supply for a major automotive manufacturer's production line.</p>
-                            <a href="#">Read Case Study</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Corrugated Panel Specs</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Construction Case Study">
-                        <div class="resource-card-content">
-                            <h3>Architectural Metal Application</h3>
-                            <p>Custom metal solutions for a landmark building project with unique aesthetic requirements.</p>
-                            <a href="#">Read Case Study</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> 5V-Crimp Panel Specs</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Energy Case Study">
-                        <div class="resource-card-content">
-                            <h3>Energy Sector Material Selection</h3>
-                            <p>Selecting specialized materials for extreme operating conditions in energy production.</p>
-                            <a href="#">Read Case Study</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> R-Panel Specifications</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Gutter System Specifications</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Downspout Specifications</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Ridge Cap Specifications</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Vinyl Siding Specifications</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Soffit Panel Specifications</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- News & Insights Tab -->
-            <div id="news-insights" class="resources-content">
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Market Trends">
-                        <div class="resource-card-content">
-                            <h3>2025 Metal Market Trends</h3>
-                            <p>Analysis of current and future trends in the global metal market and their impact on industries.</p>
-                            <a href="#">Read Article</a>
+            <!-- Installation Files Tab -->
+            <div id="installation-files" class="resources-content">
+                <div class="resource-list">
+                    <h3>Installation Guides and Manuals</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Metal Roofing Installation Guide</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Sustainability">
-                        <div class="resource-card-content">
-                            <h3>Sustainable Metal Processing</h3>
-                            <p>How the industry is evolving to reduce environmental impact and increase sustainability.</p>
-                            <a href="#">Read Article</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Vinyl Siding Installation Manual</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Technology Innovations">
-                        <div class="resource-card-content">
-                            <h3>Emerging Metal Technologies</h3>
-                            <p>Exploring innovative technologies reshaping metal manufacturing and processing.</p>
-                            <a href="#">Read Article</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Gutter System Installation Guide</a>
                         </div>
-                    </div>
-                    <div class="resource-card">
-                        <img src="/api/placeholder/400/320" alt="Supply Chain Insights">
-                        <div class="resource-card-content">
-                            <h3>Supply Chain Resilience</h3>
-                            <p>Strategies for building robust metal supply chains in uncertain global conditions.</p>
-                            <a href="#">Read Article</a>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Trim Installation Details</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Flashing Installation Guide</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Ventilation Installation Manual</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Underlayment Installation Guide</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Panel Fastening Guidelines</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="contact-section">
-        <div class="container">
-            <h2>Need Additional Resources?</h2>
-            <p>If you can't find what you're looking for or need customized information for your specific application, our team of metal experts is ready to help.</p>
-            <a href="#" class="contact-btn">Contact Our Specialists</a>
+            <!-- MSDS Tab -->
+            <div id="msds" class="resources-content">
+                <div class="resource-list">
+                    <h3>Material Safety Data Sheets</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Steel Panels MSDS</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Aluminum Panels MSDS</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Vinyl Products MSDS</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Butyl Tape MSDS</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Sealant MSDS</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Panel Coatings MSDS</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Underlayment MSDS</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Insulation Materials MSDS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Printable Applications Tab -->
+            <div id="printable-applications" class="resources-content">
+                <div class="resource-list">
+                    <h3>Forms and Applications</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Credit Application</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Order Form</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Return Request Form</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Custom Color Request</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Project Information Form</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Warranty Registration</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Dealer Application</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Sample Request Form</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Tab -->
+            <div id="resources" class="resources-content">
+                <div class="resource-list">
+                    <h3>Additional Resources</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Metal Gauge Chart</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Color Selection Guide</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Roof Pitch Guide</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Panel Coverage Calculator</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Ventilation Requirements</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Wind Rating Information</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Roofing Terminology Guide</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Maintenance Guidelines</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Energy Efficiency Guide</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warranties Tab -->
+            <div id="warranties" class="resources-content">
+                <div class="resource-list">
+                    <h3>Warranty Information</h3>
+                    <div class="resource-links">
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Metal Roof Panel Warranty</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Paint & Finish Warranty</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Vinyl Siding Warranty</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Gutter System Warranty</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Weathertightness Warranty</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Warranty Claim Form</a>
+                        </div>
+                        <div class="resource-link">
+                            <a href="#"><i class="far fa-file-pdf"></i> Warranty Transfer Form</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <div class="container">
+                    <h2>Need Assistance?</h2>
+                    <p>If you can't find the document you're looking for or need additional help, our team is ready to assist you.</p>
+                    <a href="contact.html" class="btn">Contact Us</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -758,52 +700,32 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Metal Services</h3>
+                    <h3>INSERTNAMEHERE</h3>
+                    <p>Quality roofing & siding materials built to last for all your construction needs.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Services</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="colors.html">Colors</a></li>
+                        <li><a href="resources.html">Our Resources</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Resources</h3>
+                    <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="#">Metal Specifications</a></li>
-                        <li><a href="#">Technical Guides</a></li>
-                        <li><a href="#">Calculators</a></li>
-                        <li><a href="#">Industry Standards</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Industries</h3>
-                    <ul>
-                        <li><a href="#">Aerospace</a></li>
-                        <li><a href="#">Automotive</a></li>
-                        <li><a href="#">Construction</a></li>
-                        <li><a href="#">Energy</a></li>
-                        <li><a href="#">Medical</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-phone"></i> (555) 123-4567</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> info@metalservices.com</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Metal Way, Steel City, SC 12345</a></li>
+                        <li>123 Roofing Way</li>
+                        <li>Hometown, ST 12345</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@INSERTNAMEHERE.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-                <p>&copy; 2025 Metal Services. All rights reserved.</p>
+                <p>&copy; 2025 INSERTNAMEHERE. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -824,6 +746,11 @@
                 const tabId = button.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
+        });
+        
+        // Mobile navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
         });
     </script>
 </body>
