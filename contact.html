@@ -125,7 +125,7 @@
         }
         
         /* Contact Section */
-        .contact {
+        .contact-section {
             padding: 80px 0;
             background-color: white;
         }
@@ -142,6 +142,19 @@
             font-size: 1.8rem;
         }
         
+        .contact-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
         .contact-method {
             margin-bottom: 30px;
         }
@@ -151,6 +164,7 @@
             align-items: center;
             margin-bottom: 15px;
             color: var(--dark-blue);
+            font-size: 1.4rem;
         }
         
         .contact-method h3 span {
@@ -159,8 +173,15 @@
         }
         
         .contact-method p {
-            padding-left: 30px;
+            padding-left: 10px;
             margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-method .highlight {
+            font-weight: bold;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
         }
         
         .contact-hours {
@@ -193,69 +214,13 @@
             text-align: right;
         }
         
-        /* Contact Form */
-        .contact-form h2 {
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--dark-gray);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary-blue);
-            outline: none;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: var(--dark-blue);
-            transform: translateY(-2px);
-        }
-        
         /* Map Section */
-        .map {
+        .map-section {
             padding: 40px 0 80px;
             background-color: var(--light-gray);
         }
         
-        .map h2 {
+        .map-section h2 {
             text-align: center;
             color: var(--primary-blue);
             margin-bottom: 30px;
@@ -269,6 +234,7 @@
             border-radius: 8px;
             overflow: hidden;
             position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
         .map-placeholder {
@@ -283,6 +249,48 @@
         .map-placeholder p {
             margin-bottom: 15px;
             font-weight: bold;
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            padding: 60px 0;
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+        }
+        
+        .quote-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .quote-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+        
+        .quote-section .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
         }
         
         /* Footer */
@@ -328,16 +336,6 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        /* Success Message */
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        
         /* Responsive Styles */
         @media (max-width: 768px) {
             .nav-toggle {
@@ -378,6 +376,18 @@
             .page-header h1 {
                 font-size: 2rem;
             }
+            
+            .contact-method h3 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-method p {
+                font-size: 1rem;
+            }
+            
+            .quote-section .phone {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -386,16 +396,14 @@
         <div class="container header-container">
             <div class="logo">
                 <!-- Replace with your actual logo image -->
-                <img src="logo.png" alt="Gutterman's Supply Logo">
+                <img src="images/logo.png" alt="Gutterman's Supply Logo">
             </div>
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="colors.html">Colors</a></li>
-                    <li><a href="Resources.html">Resources</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="resources.html">Resources</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
@@ -410,100 +418,74 @@
             </div>
         </section>
         
-        <section class="contact">
-            <div class="container contact-container">
-                <div class="contact-info">
-                    <h2>Get In Touch</h2>
-                    
-                    <div class="contact-method">
-                        <h3><span>📞</span> Phone</h3>
-                        <p>(555) 123-4567</p>
-                        <p>Toll Free: 1-800-555-ROOF (7663)</p>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <h3><span>✉️</span> Email</h3>
-                        <p>info@guttermanssupply.com</p>
-                        <p>sales@guttermanssupply.com</p>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <h3><span>📍</span> Location</h3>
-                        <p>123 Roofing Way</p>
-                        <p>Sidingville, ST 12345</p>
-                    </div>
-                    
-                    <div class="contact-hours">
-                        <h3>Business Hours</h3>
-                        <table class="hours-table">
-                            <tr>
-                                <td>Monday - Friday</td>
-                                <td>7:30 AM - 5:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Saturday</td>
-                                <td>8:00 AM - 12:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Sunday</td>
-                                <td>Closed</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h2>Send Us a Message</h2>
-                    
-                    <div class="success-message" id="success-message">
-                        Thank you for your message! We'll get back to you as soon as possible.
-                    </div>
-                    
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        
+                        <div class="contact-card">
+                            <div class="contact-method">
+                                <h3><span>📞</span> Sales Department</h3>
+                                <p class="highlight">(555) 123-4567</p>
+                                <p>For product inquiries, quotes, and orders</p>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <h3><span>📞</span> Customer Support</h3>
+                                <p class="highlight">1-800-555-ROOF (7663)</p>
+                                <p>For technical assistance and product support</p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                        <div class="contact-card">
+                            <div class="contact-method">
+                                <h3><span>✉️</span> Email</h3>
+                                <p class="highlight">sales@guttermanssupply.com</p>
+                                <p>For quotes and product inquiries</p>
+                                <p class="highlight">support@guttermanssupply.com</p>
+                                <p>For technical support and assistance</p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control">
+                        <div class="contact-card">
+                            <div class="contact-method">
+                                <h3><span>📍</span> Visit Our Location</h3>
+                                <p>123 Roofing Way</p>
+                                <p>Sidingville, ST 12345</p>
+                                <p>United States</p>
+                            </div>
+                            
+                            <div class="contact-hours">
+                                <h3>Business Hours</h3>
+                                <table class="hours-table">
+                                    <tr>
+                                        <td>Monday - Friday</td>
+                                        <td>7:30 AM - 5:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saturday</td>
+                                        <td>8:00 AM - 12:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sunday</td>
+                                        <td>Closed</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="" disabled selected>Select a subject</option>
-                                <option value="quote">Request a Quote</option>
-                                <option value="product">Product Information</option>
-                                <option value="warranty">Warranty Questions</option>
-                                <option value="support">Customer Support</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" class="form-control" placeholder="Please tell us how we can help you..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <section class="map">
+        <section class="map-section">
             <div class="container">
                 <h2>Find Us</h2>
                 <div class="map-container">
                     <div class="map-placeholder">
-                        <p>Map of our location at 123 Roofing Way, Sidingville, ST 12345</p>
+                        <p>Gutterman's Supply</p>
+                        <p>123 Roofing Way, Sidingville, ST 12345</p>
                         <p>Replace this with an actual embedded map</p>
                         <!-- To embed Google Maps, you would place the iframe here -->
                         <!-- Example:
@@ -517,34 +499,34 @@
                 </div>
             </div>
         </section>
+        
+        <section class="quote-section">
+            <div class="container">
+                <h2>Need a Quote?</h2>
+                <p>Our sales team is ready to help you with product specifications, pricing, and availability. Call us directly for the fastest response.</p>
+                <span class="phone">(555) 123-4567</span>
+                <p>Or send your quote request via email:</p>
+                <a href="mailto:sales@guttermanssupply.com" class="btn">Email Sales Team</a>
+            </div>
+        </section>
     </main>
     
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
+                    <h3>Gutterman's Supply</h3>
+                    <p>Quality roofing materials built to last for all your construction needs.</p>
+                </div>
+                <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="colors.html">Colors</a></li>
-                        <li><a href="Resources.html">Resources</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Products</h3>
-                    <ul>
-                        <li><a href="gutters.html">Seamless Gutters</a></li>
-                        <li><a href="downspouts.html">Downspouts</a></li>
-                        <li><a href="accessories.html">Accessories</a></li>
-                        <li><a href="roofing.html">Roofing Materials</a></li>
-                        <li><a href="siding.html">Siding Options</a></li>
-                    </ul>
-                </div>
-                
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
@@ -554,13 +536,11 @@
                         <li>Email: info@guttermanssupply.com</li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Follow Us</h3>
                     <ul>
                         <li><a href="#">Facebook</a></li>
                         <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
                         <li><a href="#">LinkedIn</a></li>
                     </ul>
                 </div>
@@ -574,29 +554,13 @@
     
     <script>
         // Navigation Toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('nav');
-        
-        navToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-        
-        // Contact Form Submission
-        const contactForm = document.getElementById('contact-form');
-        const successMessage = document.getElementById('success-message');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
             
-            // Here you would normally send the form data to a server
-            // For now, we'll just show the success message
-            successMessage.style.display = 'block';
-            contactForm.reset();
-            
-            // Hide the success message after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
+            navToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
         });
     </script>
 </body>

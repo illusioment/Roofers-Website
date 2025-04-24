@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - INSERTNAMEHERE</title>
+    <title>Resources - Gutterman's Supply</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Global Styles */
@@ -398,16 +398,14 @@
         <div class="container header-container">
             <div class="logo">
                 <!-- Replace with your actual logo image -->
-                <img src="images/logo.png" alt="INSERTNAMEHERE Logo">
+                <img src="images/logo.png" alt="Gutterman's Supply Logo">
             </div>
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="colors.html">Colors</a></li>
                     <li><a href="resources.html" class="active">Resources</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -416,7 +414,7 @@
 
     <section class="banner">
         <div class="container">
-            <h1>INSERTNAMEHERE Resources</h1>
+            <h1>Gutterman's Supply Resources</h1>
             <p>Access our comprehensive collection of documents and resources to help you with your roofing and siding projects</p>
         </div>
     </section>
@@ -436,13 +434,13 @@
                     <i class="fas fa-cut"></i> Cut Sheets
                 </button>
                 <button class="tab-button" data-tab="installation-files">
-                    <i class="fas fa-tools"></i> Installation Files
+                    <i class="fas fa-tools"></i> Installation
                 </button>
                 <button class="tab-button" data-tab="msds">
                     <i class="fas fa-flask"></i> MSDS
                 </button>
-                <button class="tab-button" data-tab="printable-applications">
-                    <i class="fas fa-print"></i> Printable Applications
+                <button class="tab-button" data-tab="applications">
+                    <i class="fas fa-print"></i> Applications
                 </button>
                 <button class="tab-button" data-tab="resources">
                     <i class="fas fa-folder-open"></i> Resources
@@ -514,9 +512,6 @@
                         <div class="resource-link">
                             <a href="#"><i class="far fa-file-pdf"></i> Vinyl Siding Specifications</a>
                         </div>
-                        <div class="resource-link">
-                            <a href="#"><i class="far fa-file-pdf"></i> Soffit Panel Specifications</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -546,9 +541,6 @@
                         </div>
                         <div class="resource-link">
                             <a href="#"><i class="far fa-file-pdf"></i> Underlayment Installation Guide</a>
-                        </div>
-                        <div class="resource-link">
-                            <a href="#"><i class="far fa-file-pdf"></i> Panel Fastening Guidelines</a>
                         </div>
                     </div>
                 </div>
@@ -580,15 +572,12 @@
                         <div class="resource-link">
                             <a href="#"><i class="far fa-file-pdf"></i> Underlayment MSDS</a>
                         </div>
-                        <div class="resource-link">
-                            <a href="#"><i class="far fa-file-pdf"></i> Insulation Materials MSDS</a>
-                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Printable Applications Tab -->
-            <div id="printable-applications" class="resources-content">
+            <div id="applications" class="resources-content">
                 <div class="resource-list">
                     <h3>Forms and Applications</h3>
                     <div class="resource-links">
@@ -612,9 +601,6 @@
                         </div>
                         <div class="resource-link">
                             <a href="#"><i class="far fa-file-pdf"></i> Dealer Application</a>
-                        </div>
-                        <div class="resource-link">
-                            <a href="#"><i class="far fa-file-pdf"></i> Sample Request Form</a>
                         </div>
                     </div>
                 </div>
@@ -648,9 +634,6 @@
                         </div>
                         <div class="resource-link">
                             <a href="#"><i class="far fa-file-pdf"></i> Maintenance Guidelines</a>
-                        </div>
-                        <div class="resource-link">
-                            <a href="#"><i class="far fa-file-pdf"></i> Energy Efficiency Guide</a>
                         </div>
                     </div>
                 </div>
@@ -700,7 +683,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>INSERTNAMEHERE</h3>
+                    <h3>Gutterman's Supply</h3>
                     <p>Quality roofing & siding materials built to last for all your construction needs.</p>
                 </div>
                 <div class="footer-column">
@@ -708,9 +691,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="colors.html">Colors</a></li>
-                        <li><a href="resources.html">Our Resources</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -720,37 +701,42 @@
                         <li>123 Roofing Way</li>
                         <li>Hometown, ST 12345</li>
                         <li>Phone: (555) 123-4567</li>
-                        <li>Email: info@INSERTNAMEHERE.com</li>
+                        <li>Email: info@guttermanssupply.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 INSERTNAMEHERE. All Rights Reserved.</p>
+                <p>&copy; 2025 Gutterman's Supply. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Tab functionality
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const resourcesContents = document.querySelectorAll('.resources-content');
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const resourcesContents = document.querySelectorAll('.resources-content');
 
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                resourcesContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    resourcesContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
             });
-        });
-        
-        // Mobile navigation toggle
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
+            
+            // Mobile navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
         });
     </script>
 </body>
